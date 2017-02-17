@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Telemetry</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script defer src="main.dart" type="application/dart"></script>
-    <script defer src="packages/browser/dart.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-      body {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 5vw;
-        font-family: Roboto, Helvetica, Arial, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+<html ng-app="mapsApp">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="css/maps.css">
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script
+            src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+    <script type="text/javascript" src="js/maps.js"></script>
+</head>
+<body>
+<div ng-controller="MapCtrl">
+    <div id="map"></div>
+    <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+        <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+            <label id="names">{{marker.title}}</label></a>
+    </div>
+</div>
+</body>
 </html>
